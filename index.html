@@ -4,142 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BiCS 2026 — Registration Forms</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:'Poppins',sans-serif;
-    min-height:100vh;
-    background:linear-gradient(135deg,#060E1A 0%,#0D2B5E 60%,#060E1A 100%);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:2rem 1rem;
-  }
-  .card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:20px;
-    padding:2.5rem 2rem;
-    width:100%;
-    max-width:480px;
-    backdrop-filter:blur(10px);
-  }
-  .logo{
-    text-align:center;
-    margin-bottom:1.8rem;
-  }
-  .logo h1{
-    font-size:1.4rem;
-    font-weight:700;
-    color:#fff;
-    line-height:1.3;
-  }
-  .logo p{
-    font-size:.78rem;
-    color:rgba(255,255,255,.5);
-    margin-top:.3rem;
-  }
-  .divider{
-    height:1px;
-    background:linear-gradient(90deg,transparent,rgba(0,137,123,.5),transparent);
-    margin-bottom:1.8rem;
-  }
-  .btn-list{
-    display:flex;
-    flex-direction:column;
-    gap:.85rem;
-  }
-  .btn{
-    display:flex;
-    align-items:center;
-    gap:.9rem;
-    padding:.95rem 1.3rem;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:600;
-    font-size:.88rem;
-    color:#fff;
-    background:rgba(255,255,255,0.07);
-    border:1px solid rgba(255,255,255,0.12);
-    transition:all .22s ease;
-  }
-  .btn:hover{
-    background:rgba(0,137,123,0.25);
-    border-color:rgba(0,137,123,0.6);
-    transform:translateX(5px);
-    box-shadow:0 4px 20px rgba(0,137,123,0.2);
-  }
-  .btn-icon{
-    width:36px;height:36px;
-    border-radius:9px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1rem;
-    flex-shrink:0;
-  }
-  .icon-attendee  { background:rgba(33,150,243,0.2);  color:#64B5F6; }
-  .icon-hackathon { background:rgba(249,168,37,0.2);  color:#FFD54F; }
-  .icon-research  { background:rgba(0,137,123,0.2);   color:#4DB6AC; }
-  .icon-student   { background:rgba(156,39,176,0.2);  color:#CE93D8; }
-  .btn-label{ flex:1; }
-  .btn-sub{
-    display:block;
-    font-size:.72rem;
-    font-weight:400;
-    color:rgba(255,255,255,.45);
-    margin-top:1px;
-  }
-  .arrow{ color:rgba(255,255,255,.3); font-size:.85rem; transition:color .2s; }
-  .btn:hover .arrow{ color:rgba(0,137,123,.9); }
+  body { font-family: Arial, sans-serif; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+  h2 { margin-bottom: 1.5rem; color: #333; font-size: 1.2rem; }
+  .btn-list { display: flex; flex-direction: column; gap: 0.8rem; width: 320px; }
+  a.btn { display: block; padding: 0.8rem 1.2rem; background: #0A1F44; color: #fff; text-decoration: none; border-radius: 8px; font-size: 0.9rem; text-align: center; transition: background 0.2s; }
+  a.btn:hover { background: #00897B; }
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="logo">
-    <h1>BiCS 2026</h1>
-    <p>Blue Intelligence Climate Summit · Registration Forms</p>
-  </div>
-  <div class="divider"></div>
-  <div class="btn-list">
-
-    <a href="attendee reg.html" class="btn">
-      <div class="btn-icon icon-attendee">🎫</div>
-      <span class="btn-label">Attendee Registration<span class="btn-sub">General Attendee</span></span>
-      <span class="arrow">›</span>
-    </a>
-
-    <a href="hackthon reg.html" class="btn">
-      <div class="btn-icon icon-hackathon">⚡</div>
-      <span class="btn-label">Hackathon Registration<span class="btn-sub">Hackathon Participants</span></span>
-      <span class="arrow">›</span>
-    </a>
-
-    <a href="research register international.html" class="btn">
-      <div class="btn-icon icon-research">🔬</div>
-      <span class="btn-label">Research Register — International<span class="btn-sub">International Researchers</span></span>
-      <span class="arrow">›</span>
-    </a>
-
-    <a href="research register national .html" class="btn">
-      <div class="btn-icon icon-research">🔬</div>
-      <span class="btn-label">Research Register — National<span class="btn-sub">Indian Researchers</span></span>
-      <span class="arrow">›</span>
-    </a>
-
-    <a href="student register international.html" class="btn">
-      <div class="btn-icon icon-student">🎓</div>
-      <span class="btn-label">Student Register — International<span class="btn-sub">International Students</span></span>
-      <span class="arrow">›</span>
-    </a>
-
-    <a href="student register national .html" class="btn">
-      <div class="btn-icon icon-student">🎓</div>
-      <span class="btn-label">Student Register — National<span class="btn-sub">Indian Students</span></span>
-      <span class="arrow">›</span>
-    </a>
-
-  </div>
+<h2>BiCS 2026 — Registration Forms</h2>
+<div class="btn-list">
+  <a href="attendee reg.html" class="btn">Attendee Registration</a>
+  <a href="hackthon reg.html" class="btn">Hackathon Registration</a>
+  <a href="research register international.html" class="btn">Research Register — International</a>
+  <a href="research register national .html" class="btn">Research Register — National</a>
+  <a href="student register international.html" class="btn">Student Register — International</a>
+  <a href="student register national .html" class="btn">Student Register — National</a>
 </div>
 </body>
 </html>
