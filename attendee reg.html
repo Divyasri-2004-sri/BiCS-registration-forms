@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendee Registration — BiCS 2026 Blue Intelligence Climate Summit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A1F44;--deep:#0D2B5E;--ocean:#1565C0;--blue:#2196F3;--teal:#00897B;--teal2:#26A69A;--teal3:#80CBC4;--gold:#F9A825;--gold2:#FFD54F;--white:#FFFFFF;--sky:#E3F2FD;--muted:#1a2e4a;--text:#0A1F44;--cyan:#00D4FF;--card-bg:rgba(255,255,255,0.75);--card-border:rgba(33,150,243,0.2)}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--sky);color:var(--text);overflow-x:clip;font-size:18px;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:2.5rem 1rem 4rem}
+
+.page-wrap{width:100%;max-width:900px}
+
+/* ═══ FORM HEADER BANNER ═══ */
+.form-banner{background:linear-gradient(160deg,#060E1A 0%,#0D2B5E 55%,#060E1A 100%);border-radius:20px 20px 0 0;padding:2.8rem 2.8rem 2rem;position:relative;overflow:hidden;margin-bottom:0}
+.form-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(0,137,123,.18) 0%,transparent 60%);pointer-events:none}
+.form-banner::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--ocean),var(--cyan),var(--teal))}
+.banner-inner{position:relative;z-index:1}
+.banner-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,137,123,.15);border:1px solid rgba(0,137,123,.3);border-radius:999px;padding:.35rem 1rem;font-family:'Poppins',sans-serif;font-size:.72rem;font-weight:700;color:var(--teal3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1rem}
+.banner-title{font-family:'Poppins',sans-serif;font-size:clamp(1.5rem,3.5vw,2.3rem);font-weight:800;color:#fff;line-height:1.2;margin-bottom:.6rem}
+.banner-title em{color:var(--cyan);font-style:normal}
+.banner-sub{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.7;max-width:600px}
+.banner-meta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.4rem}
+.banner-meta-item{display:flex;align-items:center;gap:.45rem;font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.75)}
+.banner-meta-item i{color:var(--teal3);font-size:.8rem}
+.banner-alert{display:flex;align-items:center;gap:.6rem;background:rgba(249,168,37,.12);border:1px solid rgba(249,168,37,.3);border-radius:10px;padding:.7rem 1rem;margin-top:1.2rem;font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:600;color:var(--gold2)}
+.banner-alert i{font-size:.85rem;flex-shrink:0}
+
+/* ═══ LOGO ═══ */
+.banner-logo-wrap{background:#fff;margin:-2.8rem -2.8rem 1.8rem;padding:2rem 2.8rem 2rem;position:relative;z-index:2;text-align:center}
+.banner-logo{max-height:160px;width:auto;max-width:90%;object-fit:contain;display:block;margin:0 auto}
+
+/* ═══ INFO SECTIONS ═══ */
+.info-sections{display:flex;flex-direction:column;gap:0}
+.info-block{background:#fff;border-left:4px solid var(--teal);padding:1.8rem 2.2rem;border-bottom:1px solid rgba(21,101,192,.08);box-shadow:0 0 0 1px rgba(33,150,243,.08)}
+.info-block:last-child{border-bottom:1px solid rgba(33,150,243,.1)}
+.info-block-header{font-family:'Poppins',sans-serif;font-size:.92rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:1rem;display:flex;align-items:center;gap:.55rem}
+.info-block-header i{color:var(--teal);font-size:1rem}
+.info-text{font-size:.88rem;color:var(--muted);line-height:1.75}
+
+.info-list{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+.info-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.88rem;color:var(--muted);line-height:1.65}
+.info-list li i{color:var(--teal);font-size:.82rem;margin-top:.22rem;flex-shrink:0;width:16px;text-align:center}
+.info-list li strong{color:var(--navy)}
+
+.fee-highlight{background:linear-gradient(135deg,rgba(0,137,123,.07),rgba(21,101,192,.05));border:1.5px solid rgba(0,137,123,.25);border-radius:14px;padding:1.3rem 1.5rem;margin-bottom:1rem}
+.fee-main-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}
+.fee-badge{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;color:var(--teal)}
+.fee-badge sub{font-size:.8rem;font-weight:600;vertical-align:middle;margin-right:.15rem}
+.fee-gst{font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;color:var(--muted);opacity:.75;margin-top:.1rem}
+.fee-benefits{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-top:.8rem}
+.fee-benefits li{display:flex;align-items:flex-start;gap:.6rem;font-size:.83rem;color:var(--muted);line-height:1.6}
+.fee-benefits li i{color:var(--teal);font-size:.78rem;margin-top:.22rem;flex-shrink:0}
+.fee-addon{background:rgba(249,168,37,.08);border:1.5px solid rgba(249,168,37,.25);border-radius:10px;padding:.8rem 1rem;margin-top:.9rem}
+.fee-addon-title{font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:700;color:var(--gold);margin-bottom:.35rem;display:flex;align-items:center;gap:.4rem}
+.fee-addon-title i{font-size:.8rem}
+.fee-addon-text{font-size:.82rem;color:var(--muted)}
+
+.payment-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.payment-card{background:var(--sky);border:1.5px solid rgba(21,101,192,.15);border-radius:12px;padding:1.2rem 1.3rem}
+.payment-card-title{font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.8px;margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
+.payment-card-title i{color:var(--teal);font-size:.95rem}
+.payment-num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--teal);color:#fff;font-size:.65rem;font-weight:800;flex-shrink:0}
+.bank-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.bank-table tr{border-bottom:1px solid rgba(10,31,68,.07)}
+.bank-table tr:last-child{border-bottom:none}
+.bank-table td{padding:.42rem .3rem;color:var(--muted);vertical-align:top}
+.bank-table td:first-child{font-family:'Poppins',sans-serif;font-size:.72rem;font-weight:700;color:var(--ocean);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;padding-right:.8rem;opacity:.8}
+.bank-table strong{color:var(--navy)}
+.gpay-card{background:linear-gradient(135deg,rgba(0,137,123,.06),rgba(21,101,192,.04))}
+.gpay-upi{font-family:'Poppins',sans-serif;font-size:.88rem;font-weight:700;color:var(--teal);background:rgba(0,137,123,.1);border:1px solid rgba(0,137,123,.2);border-radius:8px;padding:.55rem .9rem;word-break:break-all}
+.razor-btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'Poppins',sans-serif;font-size:.82rem;font-weight:700;background:linear-gradient(135deg,var(--ocean),var(--teal));color:#fff;text-decoration:none;padding:.55rem 1.2rem;border-radius:8px;transition:opacity .2s;margin-bottom:.5rem}
+.razor-btn:hover{opacity:.85}
+
+.reg-dates-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.reg-date-item{border-radius:10px;padding:.9rem 1.1rem;border:1.5px solid rgba(10,31,68,.1)}
+.reg-date-item.early{background:linear-gradient(135deg,rgba(0,137,123,.06),rgba(0,137,123,.02));border-color:rgba(0,137,123,.25)}
+.reg-date-item.final{background:linear-gradient(135deg,rgba(21,101,192,.06),rgba(21,101,192,.02));border-color:rgba(21,101,192,.25)}
+.reg-date-label{font-family:'Poppins',sans-serif;font-size:.72rem;font-weight:700;color:var(--muted);opacity:.75;text-transform:uppercase;letter-spacing:.8px;margin-bottom:.3rem;display:flex;align-items:center;gap:.4rem}
+.reg-date-label i{font-size:.75rem}
+.reg-date-item.early .reg-date-label i{color:var(--teal)}
+.reg-date-item.final .reg-date-label i{color:var(--ocean)}
+.reg-date-val{font-family:'Poppins',sans-serif;font-size:.92rem;font-weight:800;color:var(--navy)}
+
+/* ═══ IMPORTANT INSTRUCTIONS ═══ */
+.instruct-block{background:linear-gradient(135deg,rgba(21,101,192,.05),rgba(10,31,68,.03));border:1.5px solid rgba(21,101,192,.18);border-radius:12px;padding:1.2rem 1.4rem}
+.instruct-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.instruct-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.84rem;color:var(--muted);line-height:1.65}
+.instruct-list li i{color:var(--ocean);font-size:.8rem;margin-top:.22rem;flex-shrink:0;width:14px}
+.instruct-list li strong{color:var(--navy)}
+
+/* ═══ FORM CARD ═══ */
+.enroll-card{background:#fff;border-radius:0 0 20px 20px;box-shadow:0 8px 40px rgba(10,31,68,.1),0 0 0 1px rgba(33,150,243,.1);padding:2.8rem}
+.enroll-card-title{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800;color:var(--navy);margin-bottom:.35rem}
+.enroll-card-sub{font-size:.88rem;color:var(--muted);margin-bottom:2rem;opacity:.7}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.form-full{grid-column:1/-1}
+
+.field-group{display:flex;flex-direction:column;gap:.45rem}
+.field-label{font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:700;color:var(--ocean);letter-spacing:.3px}
+.field-label span.req{color:#e53935;margin-left:2px}
+
+.field-input,.field-select,.field-textarea{width:100%;border:1.5px solid rgba(10,31,68,.15);border-radius:10px;padding:.7rem 1rem;font-family:'Open Sans',sans-serif;font-size:.88rem;color:var(--navy);background:#fff;transition:border-color .2s,box-shadow .2s;outline:none;appearance:none;-webkit-appearance:none}
+.field-input:focus,.field-select:focus,.field-textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,137,123,.1)}
+.field-input::placeholder{color:rgba(10,31,68,.35)}
+.field-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230A1F44' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer}
+
+/* phone with ISD */
+.phone-wrap{display:flex;gap:.5rem}
+.isd-select{width:105px;flex-shrink:0;border:1.5px solid rgba(10,31,68,.15);border-radius:10px;padding:.7rem .6rem;font-family:'Open Sans',sans-serif;font-size:.82rem;color:var(--navy);background:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%230A1F44' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .5rem center;padding-right:1.6rem;appearance:none;-webkit-appearance:none;outline:none;transition:border-color .2s,box-shadow .2s;cursor:pointer}
+.isd-select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,137,123,.1)}
+.phone-number{flex:1;border:1.5px solid rgba(10,31,68,.15);border-radius:10px;padding:.7rem 1rem;font-family:'Open Sans',sans-serif;font-size:.88rem;color:var(--navy);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
+.phone-number:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,137,123,.1)}
+.phone-number::placeholder{color:rgba(10,31,68,.35)}
+
+/* radio group */
+.radio-grid{display:flex;gap:.7rem;flex-wrap:wrap}
+.radio-btn{display:flex;align-items:center;gap:.45rem;padding:.5rem 1rem;border:1.5px solid rgba(10,31,68,.15);border-radius:8px;font-family:'Poppins',sans-serif;font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;background:#fff;transition:all .2s;user-select:none}
+.radio-btn input[type="radio"]{display:none}
+.radio-btn:hover{border-color:var(--teal);color:var(--teal);background:rgba(0,137,123,.04)}
+.radio-btn.selected{border-color:var(--teal);color:#fff;background:var(--teal)}
+.radio-dot{width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0}
+
+/* section separator */
+.form-section-head{font-family:'Poppins',sans-serif;font-size:.75rem;font-weight:800;color:var(--ocean);letter-spacing:2px;text-transform:uppercase;padding:.5rem 0 .2rem;border-bottom:1.5px solid rgba(21,101,192,.15);margin-bottom:.2rem;grid-column:1/-1}
+
+/* screenshot upload */
+.upload-area{border:2px dashed rgba(0,137,123,.35);border-radius:12px;padding:1.4rem 1.2rem;text-align:center;background:rgba(0,137,123,.03);cursor:pointer;transition:all .2s;position:relative}
+.upload-area:hover{border-color:var(--teal);background:rgba(0,137,123,.06)}
+.upload-area input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-icon{font-size:1.8rem;color:var(--teal);margin-bottom:.5rem}
+.upload-label{font-family:'Poppins',sans-serif;font-size:.82rem;font-weight:700;color:var(--ocean);display:block;margin-bottom:.25rem}
+.upload-hint{font-size:.74rem;color:var(--muted);opacity:.65}
+.upload-preview{display:none;margin-top:.8rem;font-family:'Poppins',sans-serif;font-size:.78rem;color:var(--teal);font-weight:600}
+.upload-preview i{margin-right:.3rem}
+
+/* submit */
+.btn-submit{font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;background:linear-gradient(135deg,var(--teal),var(--ocean));color:#fff;border:none;padding:.9rem 2.8rem;border-radius:999px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,137,123,.35);letter-spacing:.3px;display:inline-flex;align-items:center;gap:.6rem;margin-top:.8rem}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,137,123,.5)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-submit i{font-size:.85rem}
+
+/* privacy note */
+.privacy-note{font-size:.75rem;color:rgba(10,31,68,.5);margin-top:.5rem;display:flex;align-items:center;gap:.4rem}
+.privacy-note i{color:var(--teal);font-size:.7rem}
+
+/* success */
+.success-box{display:none;background:linear-gradient(160deg,#060E1A 0%,#0D2B5E 55%,#060E1A 100%);border:1px solid rgba(0,137,123,.25);border-radius:20px;padding:3.5rem 2.5rem;text-align:center;position:relative;overflow:hidden}
+.success-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,137,123,.12) 0%,transparent 60%);pointer-events:none}
+.success-box.show{display:block}
+.success-icon{width:72px;height:72px;border-radius:50%;background:rgba(0,137,123,.2);border:2px solid rgba(0,137,123,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.8rem;color:var(--teal3);position:relative;z-index:1}
+.success-title{font-family:'Poppins',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:#fff;margin-bottom:.8rem;position:relative;z-index:1}
+.success-title em{color:var(--cyan);font-style:normal}
+.success-body{font-size:.95rem;color:rgba(255,255,255,.78);line-height:1.75;position:relative;z-index:1;max-width:560px;margin:0 auto}
+
+/* spinner */
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btn-submit.loading .spinner{display:inline-block}
+.btn-submit.loading .btn-label{display:none}
+
+/* error */
+.field-error{font-size:.75rem;color:#e53935;margin-top:.2rem;display:none}
+.field-group.has-error .field-input,
+.field-group.has-error .field-select,
+.field-group.has-error .phone-number,
+.field-group.has-error .isd-select{border-color:#e53935}
+.field-group.has-error .field-error{display:block}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:860px){
+  body{padding:1.5rem .75rem 3rem;font-size:16px}
+  .page-wrap{max-width:100%}
+  .form-banner{padding:2.2rem 1.8rem 1.6rem}
+  .banner-logo-wrap{margin:-2.2rem -1.8rem 1.5rem;padding:1.6rem 1.8rem}
+  .banner-logo{max-height:130px}
+  .enroll-card{padding:2rem 1.6rem}
+  .form-grid{grid-template-columns:1fr 1fr}
+  .payment-grid{grid-template-columns:1fr}
+  .info-block{padding:1.5rem 1.6rem}
+  .reg-dates-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  body{padding:.75rem .5rem 3rem;font-size:15px}
+  .form-banner{padding:1.6rem 1.1rem 1.3rem;border-radius:14px 14px 0 0}
+  .banner-logo-wrap{margin:-1.6rem -1.1rem 1.2rem;padding:1.2rem 1rem}
+  .banner-logo{max-height:100px}
+  .enroll-card{padding:1.3rem .95rem;border-radius:0 0 14px 14px}
+  .form-grid{grid-template-columns:1fr;gap:1rem}
+  .form-full{grid-column:1}
+  .reg-dates-grid{grid-template-columns:1fr}
+  .field-input,.field-select,.field-textarea{font-size:.85rem;padding:.65rem .85rem}
+  .isd-select{width:90px;font-size:.78rem}
+  .radio-btn{font-size:.78rem;padding:.48rem .85rem;width:calc(50% - .23rem)}
+  .btn-submit{width:100%;justify-content:center;font-size:.92rem;padding:.85rem 1.5rem;border-radius:12px}
+  .info-block{padding:1.2rem 1rem;border-left-width:3px}
+}
+@media(max-width:380px){
+  body{padding:.5rem .35rem 2.5rem}
+  .form-banner{padding:1.3rem .85rem 1.1rem}
+  .enroll-card{padding:1rem .75rem}
+  .radio-btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- BANNER -->
+  <div class="form-banner">
+    <div class="banner-inner">
+      <div class="banner-logo-wrap">
+        <img src="logo.png" alt="BiCS 2026 Logo" class="banner-logo">
+      </div>
+      <div class="banner-tag"><i class="fa-solid fa-user-check"></i>&nbsp; Attendee Registration — Indian Students</div>
+      <h1 class="banner-title"><strong>OFFLINE ATTENDANCE APPLICATION FORM – <em>BiCS 2026</em></strong></h1>
+      <p class="banner-sub" style="font-weight:700;color:rgba(255,255,255,.95);font-size:.95rem">FOR INDIAN STUDENTS – AS AN ATTENDEE &nbsp;|&nbsp; Registrations Last Date: 22<sup>nd</sup> Sept 2026</p>
+    </div>
+  </div>
+
+  <!-- INFO SECTIONS -->
+  <div class="info-sections">
+
+    <!-- About / Summit Info -->
+    <div class="info-block">
+      <p class="info-text" style="margin-bottom:1rem">The <strong>Blue Intelligence Climate Summit 2026</strong> aims to bring together policymakers, researchers, industry leaders, and coastal community stakeholders to promote sustainable ocean resource management aligned with <strong>SDG 14 (Life Below Water)</strong>.</p>
+      <p class="info-text" style="margin-bottom:1rem">The <strong>Blue Intelligence Climate Summit (BICS) 2026</strong> is a premier 2-day event uniting advanced technology and marine conservation. BICS 2026 serves as an action-oriented incubator where youth innovation, academic rigor, and industrial operations converge to co-create scalable AI solutions, decarbonize global shipping, and secure sustainable blue economies.</p>
+      <p class="info-text" style="margin-bottom:1rem"><strong>The Blue Intelligence Climate Summit 2026</strong> is an action-oriented, cross-sector event designed to pioneer data-driven solutions for ocean climate action. By bridging the gap between advanced technology and marine conservation, the summit serves as a collaborative incubator where young talent, academic rigor, and industrial operations converge to build a sustainable blue economy. The details of the BiCS 2026 are here:</p>
+      <ul class="info-list" style="margin-bottom:1rem">
+        <li><i class="fa-solid fa-circle-dot"></i><span><strong>Dates:</strong> 2<sup>nd</sup> &amp; 3<sup>rd</sup> October 2026</span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span><strong>Location:</strong> India</span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span><strong>Core Focus:</strong> Artificial Intelligence, Machine Learning, Marine Science, and Maritime Logistics.</span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span><strong>Location Strategy:</strong> Targeted at coastal innovation hubs to maximize local governance and maritime industry participation.</span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span><strong>Theme</strong>: <a href="mailto:blueics2026@gmail.com" style="color:var(--teal);text-decoration:none;font-weight:600">Blue Intelligence For A Sustainable Oceans</a></span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span><strong>Hackathon Pool:</strong> Multiple technical tracks challenging students to solve real-world industrial and civic problems.</span></li>
+      </ul>
+      <p class="info-text" style="margin-bottom:1rem">Join us at BiCS 2026, India for a global gathering of minds dedicated to a sustainable future. We are officially inviting <strong>Students (18–25)</strong> and <strong>Researchers</strong> to submit their original work for the <strong>Blue Intelligence Climate Summit 2026</strong>. By participating in this Global Summit, you <strong>need to tackle real-world marine challenges, win cash prizes, and secure corporate internships.</strong></p>
+      <p class="info-text" style="margin-bottom:.6rem"><strong>Purpose:</strong></p>
+      <p class="info-text" style="margin-bottom:.8rem">The objectives of the <strong>Blue Intelligence Climate Summit (BICS) 2026</strong> are centred on the synergy between marine preservation and technological innovation.</p>
+      <ul class="info-list" style="margin-bottom:1rem">
+        <li><i class="fa-solid fa-circle-dot"></i><span>Encourage <strong>innovation in marine technology and fisheries</strong></span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span>Strengthen <strong>maritime safety and satellite-based solutions</strong></span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span>Facilitate <strong>policy dialogue and industry collaboration</strong></span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span>Support <strong>coastal community development and livelihoods</strong></span></li>
+      </ul>
+    </div>
+
+    <!-- Fee Structure -->
+    <div class="info-block">
+      <p class="info-text" style="margin-bottom:.8rem"><strong>Attendance Participation - Fee Structure for Indian Students:</strong></p>
+      <ol class="info-list" style="margin-bottom:0;list-style:decimal;padding-left:1.2rem">
+        <li style="display:list-item;padding-left:.3rem;margin-bottom:.65rem;font-size:.88rem;color:var(--muted);line-height:1.65"><strong>Attend Summit as an Attendee:</strong> 499 INR + 18% GST (Participation E-Certificate + one Hi Tea on 2<sup>nd</sup> and 3<sup>rd</sup> Oct 2026 + Takeaways from Panel Discussions)</li>
+        <li style="display:list-item;padding-left:.3rem;margin-bottom:.65rem;font-size:.88rem;color:var(--muted);line-height:1.65"><strong>Cultural Night + Networking Dinner:</strong> 3<sup>rd</sup> October 2026 (Extra fee of 699 INR per head) from 7 p.m to 9 p.m</li>
+        <li style="display:list-item;padding-left:.3rem;margin-bottom:.65rem;font-size:.88rem;color:var(--muted);line-height:1.65">Registrations Start Date: 11<sup>th</sup> June and End Date: 31<sup>st</sup> July 2026</li>
+        <li style="display:list-item;padding-left:.3rem;margin-bottom:.65rem;font-size:.88rem;color:var(--muted);line-height:1.65">Make sure to provide correct name in the below form. We provide Participation Certificate as per your inputs only. No name corrections are allowed for the second time participation certificate, strictly prohibited.</li>
+        <li style="display:list-item;padding-left:.3rem;font-size:.88rem;color:var(--muted);line-height:1.65">Fees once paid, is non-refundable.</li>
+      </ol>
+    </div>
+
+    <!-- Important Instructions -->
+    <div class="info-block">
+      <p class="info-text" style="margin-bottom:.8rem"><strong>Important Instructions:</strong></p>
+      <ul class="info-list">
+        <li><i class="fa-solid fa-circle-dot"></i><span><strong>Required ID:</strong> Bring both a government ID and your institution ID card, without fail.</span></li>
+        <li><i class="fa-solid fa-circle-dot"></i><span><strong>Queries:</strong> Email to <a href="mailto:blueics2026@gmail.com" style="color:var(--teal)">blueics2026@gmail.com</a> by 22<sup>nd</sup> September, 2026.</span></li>
+      </ul>
+    </div>
+
+  </div><!-- end info-sections -->
+
+  <!-- FORM CARD -->
+  <div class="enroll-card" id="formCard">
+    <div class="enroll-card-title">Please fill this application form with appropriate details:</div>
+    <div class="enroll-card-sub">All fields marked <span style="color:#e53935">*</span> are required. Use digits only for phone fields (no spaces or dashes).</div>
+
+    <div class="form-grid" id="registrationForm">
+
+      <!-- ── Personal Details ── -->
+      <div class="form-section-head"><i class="fa-solid fa-user" style="margin-right:.4rem"></i>Personal Details</div>
+
+      <div class="field-group form-full">
+        <label class="field-label" for="fullName">Full Name <span class="req">*</span></label>
+        <input class="field-input" type="text" id="fullName" placeholder="As per your Passport or Aadhaar Card">
+        <div class="field-error">Please enter your full name.</div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="state">State / Country <span class="req">*</span></label>
+        <input class="field-input" type="text" id="state" placeholder="e.g. Andhra Pradesh / India">
+        <div class="field-error">Please enter your state / country.</div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="email">Personal Email Address <span class="req">*</span></label>
+        <input class="field-input" type="email" id="email" placeholder="yourname@example.com" autocomplete="email">
+        <div class="field-error">Please enter a valid email address.</div>
+      </div>
+
+      <div class="field-group form-full">
+        <label class="field-label">WhatsApp Number (with ISD Code) <span class="req">*</span></label>
+        <div class="phone-wrap">
+          <select class="isd-select" id="whatsappIsd" aria-label="WhatsApp ISD code"></select>
+          <input class="phone-number" type="tel" id="whatsapp" placeholder="WhatsApp number (digits only)">
+        </div>
+        <div class="field-error" id="whatsappError">Please enter your WhatsApp number (digits only).</div>
+      </div>
+
+      <!-- ── Institution Details ── -->
+      <div class="form-section-head"><i class="fa-solid fa-building-columns" style="margin-right:.4rem"></i>Institution Details</div>
+
+      <div class="field-group form-full">
+        <label class="field-label" for="institution">Institution Name <span class="req">*</span></label>
+        <input class="field-input" type="text" id="institution" placeholder="Full name of your college / university">
+        <div class="field-error">Please enter your institution name.</div>
+      </div>
+
+      <div class="field-group form-full">
+        <label class="field-label" for="hodName">HOD Name <span class="req">*</span></label>
+        <input class="field-input" type="text" id="hodName" placeholder="Head of Department full name">
+        <div class="field-error">Please enter HOD name.</div>
+      </div>
+
+      <!-- ── Accommodation ── -->
+      <div class="form-section-head"><i class="fa-solid fa-bed" style="margin-right:.4rem"></i>Accommodation</div>
+
+      <div class="field-group form-full">
+        <label class="field-label">Do you require an Accommodation Package? <span class="req">*</span></label>
+        <div class="radio-grid">
+          <label class="radio-btn" onclick="selectRadio(this,'accomm')">
+            <input type="radio" name="accomm" value="Yes">
+            <span class="radio-dot"></span> Yes
+          </label>
+          <label class="radio-btn" onclick="selectRadio(this,'accomm')">
+            <input type="radio" name="accomm" value="No">
+            <span class="radio-dot"></span> No
+          </label>
+        </div>
+        <div class="field-error" id="accommError" style="display:none">Please select accommodation preference.</div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:.5rem;opacity:.75"><i class="fa-solid fa-circle-info" style="color:var(--teal);margin-right:.3rem"></i>If Yes, please go to Accommodation page for the different package and its benefits. If not, please write to us on <a href="mailto:blueics2026@gmail.com" style="color:var(--teal)">blueics2026@gmail.com</a>.</p>
+      </div>
+
+      <!-- ── Fee & Payment Verification ── -->
+      <div class="form-section-head"><i class="fa-solid fa-receipt" style="margin-right:.4rem"></i>Payment Details</div>
+
+      <div class="field-group">
+        <label class="field-label" for="feeAmount">Paid Amount (₹) <span class="req">*</span></label>
+        <input class="field-input" type="text" id="feeAmount" placeholder="e.g. 499 or 588 (with GST)">
+        <div class="field-error">Please enter the fee amount paid.</div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="paymentDate">Payment Date <span class="req">*</span></label>
+        <input class="field-input" type="date" id="paymentDate">
+        <div class="field-error">Please select the payment date.</div>
+      </div>
+
+      <div class="field-group form-full">
+        <label class="field-label" for="transactionId">Transaction ID No. <span class="req">*</span></label>
+        <input class="field-input" type="text" id="transactionId" placeholder="e.g. TXN123456789 or UTR number">
+        <div class="field-error">Please enter the transaction ID.</div>
+      </div>
+
+      <div class="field-group form-full">
+        <label class="field-label">Payment Page Screenshot <span class="req">*</span></label>
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="screenshotFile" accept="image/*,.pdf" onchange="previewFile(this)">
+          <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          <span class="upload-label">Click to upload payment screenshot</span>
+          <span class="upload-hint">Accepted: JPG, PNG, PDF — Max 5MB</span>
+          <div class="upload-preview" id="uploadPreview"><i class="fa-solid fa-check-circle"></i><span id="previewName"></span></div>
+        </div>
+        <div class="field-error" id="screenshotError" style="display:none">Please upload your payment screenshot.</div>
+      </div>
+
+    </div><!-- end form-grid -->
+
+    <!-- Submit -->
+    <div style="margin-top:1.8rem;display:flex;flex-direction:column;gap:.4rem">
+      <button class="btn-submit" id="submitBtn" onclick="submitForm()">
+        <span class="btn-label"><i class="fa-solid fa-paper-plane"></i> Submit Registration</span>
+        <span class="spinner"></span>
+      </button>
+      <p class="privacy-note"><i class="fa-solid fa-lock"></i> Your data is secure and used only for summit communications. Powered by EventsKart &amp; GOAEC Foundation.</p>
+    </div>
+  </div><!-- end enroll-card -->
+
+  <!-- SUCCESS -->
+  <div class="success-box" id="successBox">
+    <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+    <div class="success-title"><em>Congratulations!</em></div>
+    <div class="success-body">
+      <p>Welcome to the <strong style="color:#fff">BiCS 2026</strong>, at <strong style="color:#fff">Radisson Blu Resort, Visakhapatnam</strong> on <strong style="color:#fff">2nd &amp; 3rd October 2026 by 8:30 AM</strong>!</p>
+    </div>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<script>
+var ISD_CODES=[{c:"India",d:"+91"},{c:"USA",d:"+1"},{c:"UK",d:"+44"},{c:"UAE",d:"+971"},{c:"Australia",d:"+61"},{c:"Canada",d:"+1"},{c:"Singapore",d:"+65"},{c:"Malaysia",d:"+60"},{c:"Germany",d:"+49"},{c:"France",d:"+33"},{c:"South Africa",d:"+27"},{c:"Kenya",d:"+254"},{c:"Nigeria",d:"+234"},{c:"Bangladesh",d:"+880"},{c:"Sri Lanka",d:"+94"},{c:"Nepal",d:"+977"},{c:"Pakistan",d:"+92"},{c:"Indonesia",d:"+62"},{c:"Philippines",d:"+63"},{c:"Japan",d:"+81"},{c:"China",d:"+86"},{c:"Brazil",d:"+55"},{c:"Mexico",d:"+52"},{c:"Other",d:"+00"}];
+
+window.addEventListener('DOMContentLoaded', function() {
+  var isdEl = document.getElementById('whatsappIsd');
+  ISD_CODES.forEach(function(it) {
+    var o = document.createElement('option');
+    o.value = it.d;
+    o.textContent = it.d + ' ' + it.c;
+    isdEl.appendChild(o);
+  });
+  isdEl.value = '+91';
+});
+
+function selectRadio(el,name){
+  document.querySelectorAll('[onclick*="\''+name+'\'"]').forEach(function(b){b.classList.remove('selected')});
+  el.classList.add('selected');
+  el.querySelector('input').checked=true;
+  var errId=name+'Error';
+  var errEl=document.getElementById(errId);
+  if(errEl) errEl.style.display='none';
+}
+
+function previewFile(input){
+  var preview=document.getElementById('uploadPreview');
+  var name=document.getElementById('previewName');
+  if(input.files&&input.files[0]){
+    preview.style.display='block';
+    name.textContent=input.files[0].name;
+    document.getElementById('screenshotError').style.display='none';
+  }
+}
+
+function required(id){
+  var el=document.getElementById(id);
+  var g=el.closest('.field-group');
+  if(!el.value.trim()){g.classList.add('has-error');return false}
+  g.classList.remove('has-error');return true;
+}
+function requiredSelect(id){
+  var el=document.getElementById(id);
+  var g=el.closest('.field-group');
+  if(!el.value){g.classList.add('has-error');return false}
+  g.classList.remove('has-error');return true;
+}
+function phoneValidate(inputId,errorId){
+  var v=document.getElementById(inputId).value.trim();
+  var g=document.getElementById(inputId).closest('.field-group');
+  if(!v||!/^\d{6,15}$/.test(v)){
+    g.classList.add('has-error');
+    document.getElementById(errorId).style.display='block';
+    return false;
+  }
+  g.classList.remove('has-error');
+  document.getElementById(errorId).style.display='none';
+  return true;
+}
+
+function submitForm(){
+  var ok=true;
+  ok=required('fullName')&&ok;
+  ok=required('state')&&ok;
+  var emailVal=document.getElementById('email').value.trim();
+  var emailGroup=document.getElementById('email').closest('.field-group');
+  if(!emailVal||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)){emailGroup.classList.add('has-error');ok=false;}
+  else emailGroup.classList.remove('has-error');
+  ok=phoneValidate('whatsapp','whatsappError')&&ok;
+  ok=required('institution')&&ok;
+  ok=required('hodName')&&ok;
+  var accomm=document.querySelector('input[name="accomm"]:checked');
+  if(!accomm){document.getElementById('accommError').style.display='block';ok=false;}
+  ok=required('feeAmount')&&ok;
+  ok=required('paymentDate')&&ok;
+  ok=required('transactionId')&&ok;
+  var fileInput=document.getElementById('screenshotFile');
+  if(!fileInput.files||fileInput.files.length===0){
+    document.getElementById('screenshotError').style.display='block';ok=false;
+  } else {document.getElementById('screenshotError').style.display='none';}
+
+  if(!ok){
+    var firstError=document.querySelector('.has-error');
+    if(firstError) firstError.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+
+  var btn=document.getElementById('submitBtn');
+  btn.classList.add('loading');btn.disabled=true;
+
+  var payload={
+    timestamp: new Date().toISOString(),
+    formType: 'Attendee',
+    fullName: document.getElementById('fullName').value.trim(),
+    stateCountry: document.getElementById('state').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    whatsapp: document.getElementById('whatsappIsd').value+' '+document.getElementById('whatsapp').value.trim(),
+    institution: document.getElementById('institution').value.trim(),
+    hodName: document.getElementById('hodName').value.trim(),
+    accommodation: accomm ? accomm.value : '',
+    feeAmount: document.getElementById('feeAmount').value.trim(),
+    paymentDate: document.getElementById('paymentDate').value,
+    transactionId: document.getElementById('transactionId').value.trim(),
+    screenshotFileName: fileInput.files[0] ? fileInput.files[0].name : ''
+  };
+
+  var SCRIPT_URL='https://script.google.com/macros/s/YOUR_APPS_SCRIPT_WEB_APP_URL_HERE/exec';
+  fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(payload)})
+  .then(function(r){return r.json()})
+  .then(function(data){
+    btn.classList.remove('loading');btn.disabled=false;
+    if(data.status==='ok'){
+      document.getElementById('formCard').style.display='none';
+      document.getElementById('successBox').classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    } else {
+      alert('Submission failed: '+(data.message||'Please try again.'));
+    }
+  })
+  .catch(function(){
+    btn.classList.remove('loading');btn.disabled=false;
+    alert('Network error. Please check your connection and try again.');
+  });
+}
+</script>
+
+<!--
+═══════════════════════════════════════════════════════════════════
+  GOOGLE APPS SCRIPT — Attendee Registration Sheet
+  Replace YOUR_APPS_SCRIPT_WEB_APP_URL_HERE above.
+  Deploy as: Execute as Me | Anyone can access.
+═══════════════════════════════════════════════════════════════════
+
+function doPost(e) {
+  try {
+    var data = JSON.parse(e.postData.contents);
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(['Timestamp','Form Type','Full Name','State / Country','Email','WhatsApp','Institution','HOD Name','Accommodation','Fee Amount','Payment Date','Transaction ID','Screenshot File']);
+    }
+    sheet.appendRow([data.timestamp||'',data.formType||'',data.fullName||'',data.stateCountry||'',data.email||'',data.whatsapp||'',data.institution||'',data.hodName||'',data.accommodation||'',data.feeAmount||'',data.paymentDate||'',data.transactionId||'',data.screenshotFileName||'']);
+    return ContentService.createTextOutput(JSON.stringify({status:'ok'})).setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService.createTextOutput(JSON.stringify({status:'error',message:err.toString()})).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+function doGet(e){return ContentService.createTextOutput(JSON.stringify({status:'ok',message:'BiCS 2026 Attendee Registration endpoint is live.'})).setMimeType(ContentService.MimeType.JSON);}
+
+═══════════════════════════════════════════════════════════════════
+-->
+</body>
+</html>
